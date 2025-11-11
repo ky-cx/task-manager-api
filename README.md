@@ -95,14 +95,51 @@ curl -X PUT "http://localhost:8000/tasks/1" \
     "completed": true
   }'
 ```
+## 🎬 Quick Demo
+
+Once the server is running, you can test the API:
+
+### Create a task
+```bash
+curl -X POST "http://localhost:8000/tasks" \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Learn FastAPI", "description": "Complete the tutorial"}'
+```
+
+### Get all tasks
+```bash
+curl http://localhost:8000/tasks
+```
+
+### Update a task
+```bash
+curl -X PUT "http://localhost:8000/tasks/1" \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Learn FastAPI", "completed": true}'
+```
+
+## 📸 Screenshots
+
+*API Documentation (Swagger UI)*
+![Swagger UI](https://fastapi.tiangolo.com/img/index/index-01-swagger-ui-simple.png)
+
+## 🧪 Testing
+```bash
+# Run with test data
+python -c "
+import requests
+response = requests.get('http://localhost:8000')
+print(response.json())
+"
+```
 
 ## 🔮 Future Enhancements
 
-- [ ] Add database persistence (PostgreSQL/SQLite)
+- [ ] Add PostgreSQL database persistence
 - [ ] Implement user authentication (JWT)
 - [ ] Add task categories and tags
-- [ ] Deploy to cloud platform (AWS/Heroku)
-- [ ] Add unit tests
+- [ ] Deploy to Heroku/Railway
+- [ ] Add unit tests with pytest
 
 ## 👨‍💻 Author
 
